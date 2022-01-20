@@ -45,8 +45,8 @@ namespace TUIForecast.Application.Test.UnitTests
             IEnumerable<string> nextDaysWeather = new List<string>() { "Rainy", "Cloudy" };
 
             _cityRequestService.Setup(crs => crs.GetAll()).Returns(Task.FromResult(citiesWeather));
-            _weatherRequestService.Setup(wrs => wrs.GetWeather(coordinates1, days)).Returns(nextDaysWeather);
-            _weatherRequestService.Setup(wrs => wrs.GetWeather(coordinates2, days)).Returns(nextDaysWeather);
+            _weatherRequestService.Setup(wrs => wrs.GetWeather(coordinates1, days)).Returns(Task.FromResult(nextDaysWeather));
+            _weatherRequestService.Setup(wrs => wrs.GetWeather(coordinates2, days)).Returns(Task.FromResult(nextDaysWeather));
 
             _forecastService = new ForecastService(_cityRequestService.Object, _weatherRequestService.Object);
 

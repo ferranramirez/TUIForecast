@@ -30,7 +30,7 @@ namespace TUIForecast.Application.Impl
 
             foreach (var city in cities)
             {
-                var weatherList = _weatherRequestService
+                var weatherList = await _weatherRequestService
                     .GetWeather(new Coordinates(city.Latitude, city.Longitude), days);
 
                 response.Add(new WeatherResponse(city.Name, weatherList));
