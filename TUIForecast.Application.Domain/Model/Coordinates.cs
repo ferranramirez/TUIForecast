@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TUIForecast.Application.Domain.Model
+﻿namespace TUIForecast.Application.Domain.Model
 {
     public class Coordinates
     {

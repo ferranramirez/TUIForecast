@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Net.Http;
 using TUIForecast.Application.Contract;
 using TUIForecast.Application.Impl;
-using System;
 using TUIForecast.Application.Contract.RequestServices;
 using TUIForecast.Application.Impl.RequestServices;
 

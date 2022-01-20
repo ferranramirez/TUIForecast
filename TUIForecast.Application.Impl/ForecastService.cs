@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TUIForecast.Application.Contract;
 using TUIForecast.Application.Contract.RequestServices;
 using TUIForecast.Application.Domain.Model;

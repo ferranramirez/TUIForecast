@@ -1,13 +1,8 @@
-using Moq;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using TUIForecast.Application.Contract;
 using TUIForecast.Application.Contract.RequestServices;
 using TUIForecast.Application.Domain.Model;
-using TUIForecast.Application.Impl;
 using TUIForecast.Application.Impl.RequestServices;
 using Xunit;
 
