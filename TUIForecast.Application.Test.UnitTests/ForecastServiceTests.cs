@@ -56,11 +56,12 @@ namespace TUIForecast.Application.Test.UnitTests
                 new WeatherResponse(citiesWeather.Last().Name, nextDaysWeather)
             };
 
-            // Act
-            var actual = await _forecastService.GetForecast();
-            
-            // Assert
-            Assert.Equal(expected, actual);
+            // Act && Assert
+            int i = 0;
+            await foreach (var forecast in _forecastService.GetForecast())
+            {
+                Assert.Equal(expected[i++], forecast);
+            }
         }
     }
 }

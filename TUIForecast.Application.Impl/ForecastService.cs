@@ -22,10 +22,8 @@ namespace TUIForecast.Application.Impl
             _weatherRequestService = weatherRequestService;
         }
 
-        public async Task<IEnumerable<WeatherResponse>> GetForecast()
+        public async IAsyncEnumerable<WeatherResponse> GetForecast()
         {
-            var response = new List<WeatherResponse>();
-
             var cities = await _cityRequestService.GetAll();
 
             foreach (var city in cities)
@@ -33,10 +31,8 @@ namespace TUIForecast.Application.Impl
                 var weatherList = await _weatherRequestService
                     .GetWeather(new Coordinates(city.Latitude, city.Longitude), days);
 
-                response.Add(new WeatherResponse(city.Name, weatherList));
+                yield return new WeatherResponse(city.Name, weatherList);
             }
-
-            return response;
         }
     }
 }
