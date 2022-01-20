@@ -10,18 +10,15 @@ using TUIForecast.Application.Domain.Model;
 
 namespace TUIForecast.Application.Impl.RequestServices
 {
-    public class CityRequestService : ICityRequestService
+    public class CityRequestService : RequestBase, ICityRequestService
     {
-        private readonly HttpClient _httpClient;
-        public CityRequestService(HttpClient httpClient)
+        public CityRequestService(HttpClient httpClient) : base(httpClient)
         {
-            _httpClient = httpClient;
         }
 
         public async Task<IEnumerable<CityInfo>> GetAll()
         {
-            var httpResponse = await _httpClient.GetAsync(RequestResources.CitiesUrl);
-            var strResponse = await httpResponse.Content.ReadAsStringAsync();
+            var strResponse = await GetResponse(RequestResources.CitiesUrl);
             return JsonConvert.DeserializeObject<IEnumerable<CityInfo>>(strResponse);
         }
     }

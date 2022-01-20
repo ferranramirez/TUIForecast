@@ -11,12 +11,10 @@ using TUIForecast.Application.Domain.Model;
 
 namespace TUIForecast.Application.Impl.RequestServices
 {
-    public class WeatherRequestService : IWeatherRequestService
+    public class WeatherRequestService : RequestBase, IWeatherRequestService
     {
-        private readonly HttpClient _httpClient;
-        public WeatherRequestService(HttpClient httpClient)
+        public WeatherRequestService(HttpClient httpClient) : base(httpClient)
         {
-            _httpClient = httpClient;
         }
 
         public async Task<IEnumerable<string>> GetWeather(Coordinates coordinates, int days)
@@ -25,8 +23,7 @@ namespace TUIForecast.Application.Impl.RequestServices
                     coordinates.Latitude.ToString(CultureInfo.InvariantCulture),
                     coordinates.Longitude.ToString(CultureInfo.InvariantCulture), days);
 
-            var httpResponse = await _httpClient.GetAsync(requestUrl);
-            var strResponse = await httpResponse.Content.ReadAsStringAsync();
+            var strResponse = await GetResponse(requestUrl);
             var weatherObject = JObject.Parse(strResponse);
 
             return weatherObject["forecast"]["forecastday"]

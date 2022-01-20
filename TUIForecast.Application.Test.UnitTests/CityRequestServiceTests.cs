@@ -1,6 +1,8 @@
 using Moq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using TUIForecast.Application.Contract.RequestServices;
 using TUIForecast.Application.Domain.Model;
 using TUIForecast.Application.Impl.RequestServices;
@@ -27,6 +29,20 @@ namespace TUIForecast.Application.Test.UnitTests
 
             // Assert
             Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public async Task GetAll_WhenExternalAPINotWorking_ThrowsException()
+        {
+            // Arrange
+            _cityRequestService = new CityRequestService(MockHttpClient_KO());
+
+            // Act
+            async Task action() => await _cityRequestService.GetAll();
+
+            // Assert
+            var exception = await Assert.ThrowsAsync<HttpRequestException>(action);
+            Assert.Equal("The request failed", exception.Message);
         }
     }
 }
