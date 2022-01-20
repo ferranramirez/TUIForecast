@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TUIForecast.Application.Contract\TUIForecast.Application.Contract.csproj" />
+    <ProjectReference Include="..\TUIForecast.Application.Domain\TUIForecast.Application.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
