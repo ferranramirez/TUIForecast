@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TUIForecast.Application.Contract;
 using TUIForecast.Application.Contract.RequestServices;
 using TUIForecast.Application.Domain.Model;
@@ -21,11 +22,11 @@ namespace TUIForecast.Application.Impl
             _weatherRequestService = weatherRequestService;
         }
 
-        public IEnumerable<WeatherResponse> GetForecast()
+        public async Task<IEnumerable<WeatherResponse>> GetForecast()
         {
             var response = new List<WeatherResponse>();
 
-            var cities = _cityRequestService.GetAll();
+            var cities = await _cityRequestService.GetAll();
 
             foreach (var city in cities)
             {

@@ -1,6 +1,7 @@
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TUIForecast.Application.Contract;
 using TUIForecast.Application.Contract.RequestServices;
 using TUIForecast.Application.Domain.Model;
@@ -25,7 +26,7 @@ namespace TUIForecast.Application.Test.UnitTests
         }
 
         [Fact]
-        public void GetForecast_GivenRightCitiesAndCoordinates_ReturnsExpectedWeatherResponse()
+        public async Task GetForecast_GivenRightCitiesAndCoordinates_ReturnsExpectedWeatherResponse()
         {
             // Arrange
             IEnumerable<CityInfo> citiesWeather = new List<CityInfo>()
@@ -43,7 +44,7 @@ namespace TUIForecast.Application.Test.UnitTests
             var coordinates2 = new Coordinates(citiesWeather.Last().Latitude, citiesWeather.Last().Longitude);
             IEnumerable<string> nextDaysWeather = new List<string>() { "Rainy", "Cloudy" };
 
-            _cityRequestService.Setup(crs => crs.GetAll()).Returns(citiesWeather);
+            _cityRequestService.Setup(crs => crs.GetAll()).Returns(Task.FromResult(citiesWeather));
             _weatherRequestService.Setup(wrs => wrs.GetWeather(coordinates1, days)).Returns(nextDaysWeather);
             _weatherRequestService.Setup(wrs => wrs.GetWeather(coordinates2, days)).Returns(nextDaysWeather);
 
@@ -56,7 +57,7 @@ namespace TUIForecast.Application.Test.UnitTests
             };
 
             // Act
-            var actual = _forecastService.GetForecast();
+            var actual = await _forecastService.GetForecast();
             
             // Assert
             Assert.Equal(expected, actual);

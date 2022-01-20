@@ -7,6 +7,6 @@ namespace TUIForecast.Application.Contract
 {
     public interface IForecastService
     {
-        IEnumerable<WeatherResponse> GetForecast();
+        Task<IEnumerable<WeatherResponse>> GetForecast();
     }
 }
