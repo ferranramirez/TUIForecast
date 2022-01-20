@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Presentation", "1-Present
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Application", "2-Application", "{7CE97B98-74F2-45F2-A21E-2F383238225B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUIForecast.Presentation.CLI", "TUIForecast.Presentation.CLI\TUIForecast.Presentation.CLI.csproj", "{8345D789-6EF7-412C-9BDE-19C6E3DD1E98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{EA6C17B5-35A3-4DFF-B2C9-45AC0C63CE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA6C17B5-35A3-4DFF-B2C9-45AC0C63CE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA6C17B5-35A3-4DFF-B2C9-45AC0C63CE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8345D789-6EF7-412C-9BDE-19C6E3DD1E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8345D789-6EF7-412C-9BDE-19C6E3DD1E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8345D789-6EF7-412C-9BDE-19C6E3DD1E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8345D789-6EF7-412C-9BDE-19C6E3DD1E98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{EA6C17B5-35A3-4DFF-B2C9-45AC0C63CE99} = {0259A521-2308-417C-BCFA-35F072545CC9}
 		{B2206E8C-83F4-4182-A458-325FD8109D38} = {171646E0-97C8-4E0E-9A20-151F8E1EE82F}
 		{7CE97B98-74F2-45F2-A21E-2F383238225B} = {171646E0-97C8-4E0E-9A20-151F8E1EE82F}
+		{8345D789-6EF7-412C-9BDE-19C6E3DD1E98} = {B2206E8C-83F4-4182-A458-325FD8109D38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EEAF09C-5083-4F64-9841-EB4F17D7ECF4}
